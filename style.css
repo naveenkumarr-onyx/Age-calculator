@@ -1,0 +1,82 @@
+/* common css */
+* {
+  margin: 0;
+}
+input {
+  width: 70px;
+  border-radius: 5px;
+  border: 1px solid #eaeaea;
+  padding: 5px;
+}
+label {
+  color: #7d7d7d;
+  letter-spacing: 3px;
+}
+input::placeholder {
+  color: #7d7d7d;
+}
+.container {
+  background-color: #f0f0f0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container1 {
+  width: 500px;
+  height: 400px;
+  padding: 30px;
+  background-color: #ffffff;
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+  border-radius: 10px 10px 120px 10px;
+}
+/* Input Div */
+.input-container {
+  display: flex;
+  gap: 50px;
+}
+.input-div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+/* Submit btn-div */
+.btn-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.line {
+  background-color: #f0f0f0;
+  display: flex;
+  flex: 1;
+  width: 415px;
+  height: 2px;
+}
+img {
+  background-color: #864cff;
+  border-radius: 30px;
+  padding: 8px;
+}
+/* calculate-div */
+
+.calculate-div h1 {
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  gap: 10px;
+  font-size: 70px;
+  font-weight: 600;
+  display: flex;
+}
+span {
+  font-size: 85px;
+  font-weight: bolder;
+  color: #864cff;
+}
+@media screen and (max-width: 768px) {
+  .container1 {
+  }
+}
