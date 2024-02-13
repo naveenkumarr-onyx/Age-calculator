@@ -1,4 +1,12 @@
 /* common css */
+@font-face {
+  font-family: "Poppins-Bold";
+  src: url("./assets/fonts/Poppins-Bold.ttf");
+}
+@font-face {
+  font-family: "Poppins-Regular";
+  src: url("./assets/fonts/Poppins-Regular.ttf");
+}
 * {
   margin: 0;
 }
@@ -6,14 +14,21 @@ input {
   width: 70px;
   border-radius: 5px;
   border: 1px solid #eaeaea;
-  padding: 5px;
+  padding: 10px;
+  margin-left: 5px;
 }
 label {
+  font-family: "Poppins-Bold";
+  font-weight: 800;
+  font-size: 10px;
   color: #7d7d7d;
   letter-spacing: 3px;
 }
 input::placeholder {
   color: #7d7d7d;
+  font-family: "Poppins-Bold";
+  font-weight: 800;
+  font-size: 20px;
 }
 .container {
   background-color: #f0f0f0;
@@ -24,7 +39,7 @@ input::placeholder {
 }
 .container1 {
   width: 500px;
-  height: 400px;
+
   padding: 30px;
   background-color: #ffffff;
   display: flex;
@@ -61,13 +76,16 @@ img {
   padding: 8px;
 }
 /* calculate-div */
-
+.calculate-div {
+}
 .calculate-div h1 {
+  font-family: "Poppins-Bold";
   display: flex;
+  margin: 0px;
   /* justify-content: center; */
   align-items: center;
-  gap: 10px;
-  font-size: 70px;
+  /* gap: 5px; */
+  font-size: 60px;
   font-weight: 600;
   display: flex;
 }
