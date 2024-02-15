@@ -7,6 +7,10 @@
   font-family: "Poppins-Regular";
   src: url("./assets/fonts/Poppins-Regular.ttf");
 }
+@font-face {
+  font-family: "Poppins-ExtraBold";
+  src: url("./assets/fonts/Poppins-ExtraBold.ttf");
+}
 * {
   margin: 0;
 }
@@ -39,8 +43,7 @@ input::placeholder {
 }
 .container1 {
   width: 500px;
-
-  padding: 30px;
+  padding: 25px;
   background-color: #ffffff;
   display: flex;
   gap: 10px;
@@ -48,6 +51,14 @@ input::placeholder {
   border-radius: 10px 10px 120px 10px;
 }
 /* Input Div */
+input {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+input:focus {
+  border: none;
+}
 .input-container {
   display: flex;
   gap: 50px;
@@ -77,24 +88,33 @@ img {
 }
 /* calculate-div */
 .calculate-div {
+  padding: 5px;
 }
 .calculate-div h1 {
-  font-family: "Poppins-Bold";
+  font-family: "Poppins-ExtraBold";
   display: flex;
   margin: 0px;
   /* justify-content: center; */
   align-items: center;
-  /* gap: 5px; */
+  /* gap: 100px; */
   font-size: 60px;
-  font-weight: 600;
+  font-weight: 400;
+  /* line-height: 24px; */
   display: flex;
 }
 span {
-  font-size: 85px;
-  font-weight: bolder;
   color: #864cff;
 }
 @media screen and (max-width: 768px) {
   .container1 {
+    width: 315px;
+    padding: 29px;
+    gap: 10px;
+  }
+  .input-container {
+    gap: 12px;
+  }
+  .calculate-div {
+    padding: 0px;
   }
 }

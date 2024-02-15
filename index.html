@@ -29,7 +29,7 @@
         <!-- Input Div -->
         <div class="input-container">
           <div class="input-div">
-            <label for="day">DAY</label>
+            <label for="day" id=" Day_label">DAY</label>
             <input type="text" id="day" placeholder="DD" />
           </div>
           <div class="input-div">
@@ -43,10 +43,14 @@
         </div>
         <div class="btn-div">
           <div class="line"></div>
-          <img src="./assets/images/icon-arrow.svg" alt="arrow-icon" />
+          <img
+            src="./assets/images/icon-arrow.svg"
+            alt="arrow-icon"
+            id="submit-btn"
+          />
         </div>
         <div class="calculate-div">
-          <h1><span>--</span>years</h1>
+          <h1><span id="cal_year">--</span>years</h1>
           <h1><span>--</span>months</h1>
           <h1><span>--</span>days</h1>
         </div>
@@ -54,8 +58,6 @@
     </div>
 
     <!-- Script -->
-    <script href="./index.js">
-      console.log("Loading");
-    </script>
+    <script src="./index.js"></script>
   </body>
 </html>
