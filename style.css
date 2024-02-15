@@ -8,6 +8,10 @@
   src: url("./assets/fonts/Poppins-Regular.ttf");
 }
 @font-face {
+  font-family: "Poppins-Italic";
+  src: url("./assets/fonts/Poppins-Italic.ttf");
+}
+@font-face {
   font-family: "Poppins-ExtraBold";
   src: url("./assets/fonts/Poppins-ExtraBold.ttf");
 }
@@ -67,6 +71,11 @@ input:focus {
   display: flex;
   flex-direction: column;
   gap: 5px;
+}
+.valid_day {
+  font-size: 16px;
+  font-weight: 400;
+  font-family: "Poppins-Italic";
 }
 /* Submit btn-div */
 .btn-div {

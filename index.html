@@ -29,8 +29,17 @@
         <!-- Input Div -->
         <div class="input-container">
           <div class="input-div">
-            <label for="day" id=" Day_label">DAY</label>
+            <label for="day" id="Day_label">DAY</label>
             <input type="text" id="day" placeholder="DD" />
+            <small
+              id="valid_day"
+              style="
+                color: red;
+                font-family: Poppins-Italic;
+                visibility: hidden;
+              "
+              >Must be a valid day</small
+            >
           </div>
           <div class="input-div">
             <label for="month">MONTH</label>

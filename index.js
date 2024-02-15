@@ -15,7 +15,13 @@ submitBtn.addEventListener("click", function () {
   //   Day
   if (day > 31) {
     var Day_label = document.getElementById("Day_label");
+    var valid_day = document.getElementById("valid_day");
+    valid_day.style.visibility = "visible";
     Day_label.style.color = "red";
   }
   //   console.log(ageInMonths);
+
+  // month
+  var y = month + getYear.getMonth();
+  console.log(y);
 });
