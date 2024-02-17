@@ -42,8 +42,17 @@
             >
           </div>
           <div class="input-div">
-            <label for="month">MONTH</label>
+            <label for="month" id="month_label">MONTH</label>
             <input type="text" id="month" placeholder="MM" />
+            <small
+              id="valid_month"
+              style="
+                color: red;
+                font-family: Poppins-Italic;
+                visibility: hidden;
+              "
+              >Must be a valid month</small
+            >
           </div>
           <div class="input-div">
             <label for="year">YEAR</label>
@@ -60,7 +69,7 @@
         </div>
         <div class="calculate-div">
           <h1><span id="cal_year">--</span>years</h1>
-          <h1><span>--</span>months</h1>
+          <h1><span id="cal_month">--</span>months</h1>
           <h1><span>--</span>days</h1>
         </div>
       </div>
