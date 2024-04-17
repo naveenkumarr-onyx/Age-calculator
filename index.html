@@ -13,20 +13,10 @@
     />
     <link rel="stylesheet" href="./style.css" />
     <title>Age calculator app</title>
-    <style>
-      /* .attribution {
-        font-size: 11px;
-        text-align: center;
-      }
-      .attribution a {
-        color: hsl(228, 45%, 44%);
-      } */
-    </style>
   </head>
   <body>
     <div class="container">
       <div class="container1">
-        <!-- Input Div -->
         <div class="input-container">
           <div class="input-div">
             <label for="day" id="Day_label">DAY</label>
@@ -34,6 +24,7 @@
             <small
               id="valid_day"
               style="
+                font-size: 10px;
                 color: red;
                 font-family: Poppins-Italic;
                 visibility: hidden;
@@ -47,6 +38,7 @@
             <small
               id="valid_month"
               style="
+                font-size: 10px;
                 color: red;
                 font-family: Poppins-Italic;
                 visibility: hidden;
@@ -55,8 +47,18 @@
             >
           </div>
           <div class="input-div">
-            <label for="year">YEAR</label>
+            <label for="year" id="year_label">YEAR</label>
             <input type="text" id="year" placeholder="YYYY" />
+            <small
+              id="valid_year"
+              style="
+                font-size: 10px;
+                color: red;
+                font-family: Poppins-Italic;
+                visibility: hidden;
+              "
+              >Must be a valid month</small
+            >
           </div>
         </div>
         <div class="btn-div">
@@ -65,17 +67,17 @@
             src="./assets/images/icon-arrow.svg"
             alt="arrow-icon"
             id="submit-btn"
+            onclick="calculateAge()"
           />
         </div>
         <div class="calculate-div">
           <h1><span id="cal_year">--</span>years</h1>
           <h1><span id="cal_month">--</span>months</h1>
-          <h1><span>--</span>days</h1>
+          <h1><span id="cal_day">--</span>days</h1>
         </div>
       </div>
     </div>
 
-    <!-- Script -->
     <script src="./index.js"></script>
   </body>
 </html>

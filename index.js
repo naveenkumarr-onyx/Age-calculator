@@ -1,81 +1,78 @@
-function calculateDay(day) {
-  var today = new Date();
+function calculateAge() {
+  var day = parseInt(document.getElementById("day").value);
+  var month = parseInt(document.getElementById("month").value);
+  var year = parseInt(document.getElementById("year").value);
+
   if (day > 31) {
-    var Day_label = document.getElementById("Day_label");
-    var valid_day = document.getElementById("valid_day");
-    valid_day.setAttribute("style", "color:red;visibility:visible");
-    Day_label.style.color = "red";
-    console.log(day);
+    var valid_labels = document.querySelectorAll("#valid_day");
+    valid_labels.forEach(function (label) {
+      label.innerHTML = "Enter a valid day";
+      label.style.color = "red";
+      label.style.visibility = "visible";
+    });
   } else {
+    if (isNaN(day) || isNaN(month) || isNaN(year)) {
+      var valid_labels = document.querySelectorAll(
+        "#valid_day, #valid_month, #valid_year"
+      );
+      valid_labels.forEach(function (label) {
+        label.innerHTML = "These fields are required";
+        label.style.color = "red";
+        label.style.visibility = "visible";
+      });
+      var labels = document.querySelectorAll(
+        "#Day_label , #month_label, #year_label"
+      );
+      labels.forEach((label) => {
+        label.style.color = "red";
+      });
+    } else {
+      var labels = document.querySelectorAll(
+        "#Day_label , #month_label, #year_label"
+      );
+      labels.forEach((label) => {
+        label.style.color = "";
+      });
+      var valid_labels = document.querySelectorAll(
+        "#valid_day, #valid_month, #valid_year"
+      );
+      valid_labels.forEach(function (label) {
+        label.style.visibility = "hidden";
+      });
+    }
   }
-  var getingDay = today.getDate() + day;
-  console.log(getingDay);
-}
+  if (!day || !month || !year) return;
 
-function calculateMonth(month) {
+  var birthDate = new Date(year, month - 1, day); // Note: months are 0-indexed in JavaScript
   var today = new Date();
-  if (month > 12) {
-    var month_label = document.getElementById("month_label");
-    var valid_month = document.getElementById("valid_month");
-    valid_month.style.visibility = "visible";
-    month_label.style.color = "red";
-  }
-  var getingMonth = today.getMonth();
-  var cal_month = document.getElementById("cal_month");
-  cal_month.innerHTML = getingMonth;
-}
 
-function calculateYear(year) {
-  var today = new Date();
-  var ageYear = today.getFullYear() - year;
-  var cal_year = document.getElementById("cal_year");
-  cal_year.innerHTML = ageYear;
-}
+  var years = today.getFullYear() - birthDate.getFullYear();
+  var months = today.getMonth() - birthDate.getMonth();
+  var days = today.getDate() - birthDate.getDate();
 
-var submitBtn = document.getElementById("submit-btn");
-submitBtn.addEventListener("click", function () {
-  var year = document.getElementById("year").value;
-  var month = document.getElementById("month").value;
-  var day = document.getElementById("day").value;
-  if (!year || !month || !day) {
-    alert("Enter the valid value");
-    return;
-  }
-  calculateYear(year);
-  calculateMonth(month);
-  calculateDay(day);
-});
-
-function calculateAge(birthDate) {
-  const currentDate = new Date();
-  const birthYear = birthDate.getFullYear();
-  console.log("birthYear" + birthYear);
-  const birthMonth = birthDate.getMonth();
-  console.log("birthMonth" + birthMonth);
-  const birthDay = birthDate.getDate();
-  console.log("birthdate" + birthDate);
-
-  const currentYear = currentDate.getFullYear();
-  console.log("currentYear" + currentYear);
-  const currentMonth = currentDate.getMonth();
-  console.log("currentMonth" + currentMonth);
-  const currentDay = currentDate.getDate();
-  console.log("currentDay" + currentDay);
-
-  let age = currentYear - birthYear;
-  console.log("age" + age);
-
-  if (
-    currentMonth < birthMonth ||
-    (currentMonth === birthMonth && currentDay < birthDay)
-  ) {
-    age--;
+  // If the birth date's month is after the current month or if the birth date's month is the same as the current month
+  // but the birth date's day is after the current day, subtract one year
+  if (months < 0 || (months === 0 && today.getDate() < birthDate.getDate())) {
+    years--;
+    months += 12;
   }
 
-  return age;
-}
+  // If the birth date's day is after the current day, subtract one month and add days of the previous month
+  if (days < 0) {
+    months--;
+    var daysInLastMonth = new Date(
+      today.getFullYear(),
+      today.getMonth(),
+      0
+    ).getDate();
+    days += daysInLastMonth;
+  }
 
-// Example usage:
-const birthDate = new Date("2001-06-01");
-const age = calculateAge(birthDate);
-console.log(age); // Output will be the person's age based on the current date
+  // Display the calculated age
+  var yearResult = document.getElementById("cal_year");
+  yearResult.innerHTML = years;
+  var monthResult = document.getElementById("cal_month");
+  monthResult.innerHTML = months;
+  var dayResult = document.getElementById("cal_day");
+  dayResult.innerHTML = days;
+}
