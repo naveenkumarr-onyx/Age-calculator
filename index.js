@@ -2,44 +2,35 @@ function calculateAge() {
   var day = parseInt(document.getElementById("day").value);
   var month = parseInt(document.getElementById("month").value);
   var year = parseInt(document.getElementById("year").value);
-
-  if (day > 31) {
-    var valid_labels = document.querySelectorAll("#valid_day");
+  validChecking(day);
+  if (isNaN(day) || isNaN(month) || isNaN(year)) {
+    var valid_labels = document.querySelectorAll(
+      "#valid_day, #valid_month, #valid_year"
+    );
     valid_labels.forEach(function (label) {
-      label.innerHTML = "Enter a valid day";
+      label.innerHTML = "These fields are required";
       label.style.color = "red";
       label.style.visibility = "visible";
     });
+    var labels = document.querySelectorAll(
+      "#Day_label , #month_label, #year_label"
+    );
+    labels.forEach((label) => {
+      label.style.color = "red";
+    });
   } else {
-    if (isNaN(day) || isNaN(month) || isNaN(year)) {
-      var valid_labels = document.querySelectorAll(
-        "#valid_day, #valid_month, #valid_year"
-      );
-      valid_labels.forEach(function (label) {
-        label.innerHTML = "These fields are required";
-        label.style.color = "red";
-        label.style.visibility = "visible";
-      });
-      var labels = document.querySelectorAll(
-        "#Day_label , #month_label, #year_label"
-      );
-      labels.forEach((label) => {
-        label.style.color = "red";
-      });
-    } else {
-      var labels = document.querySelectorAll(
-        "#Day_label , #month_label, #year_label"
-      );
-      labels.forEach((label) => {
-        label.style.color = "";
-      });
-      var valid_labels = document.querySelectorAll(
-        "#valid_day, #valid_month, #valid_year"
-      );
-      valid_labels.forEach(function (label) {
-        label.style.visibility = "hidden";
-      });
-    }
+    var labels = document.querySelectorAll(
+      "#Day_label , #month_label, #year_label"
+    );
+    labels.forEach((label) => {
+      label.style.color = "";
+    });
+    var valid_labels = document.querySelectorAll(
+      "#valid_day, #valid_month, #valid_year"
+    );
+    valid_labels.forEach(function (label) {
+      label.style.visibility = "hidden";
+    });
   }
   if (!day || !month || !year) return;
 
@@ -75,4 +66,24 @@ function calculateAge() {
   monthResult.innerHTML = months;
   var dayResult = document.getElementById("cal_day");
   dayResult.innerHTML = days;
+}
+
+function validChecking(day, month, year) {
+  console.log(day);
+  // if (day > 31) {
+  //   var valid_labels = document.querySelector("#valid_day");
+  //   valid_labels.innerHTML = "Enter a valid day";
+  //   var labels = document.querySelector("#Day_label");
+  //   labels.style.color = "red";
+  // }
+  // valid_labels.forEach(function (label) {
+  //   label.innerHTML = "These fields are required";
+  //   label.style.color = "red";
+  //   label.style.visibility = "visible";
+  // });
+  // } else if (month > 12) {
+  //   alert("month");
+  // } else {
+  //   console.log("hi");
+  // }
 }
